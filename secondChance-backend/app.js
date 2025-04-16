@@ -8,6 +8,7 @@ const connectToDatabase = require("./models/db");
 const { loadData } = require("./util/import-mongo/index");
 const secondChanceItemsRoutes = require("./routes/secondChanceItemsRoutes");
 const authRoutes = require("./routes/authRegister");
+const loginRoutes = require("./routes/loginRouters");
 
 const app = express();
 app.use("*", cors());
@@ -32,6 +33,7 @@ app.use(express.json());
 app.use("/api/secondchance/items", secondChanceItemsRoutes);
 app.use("/api/secondchance/items/:id", secondChanceItemsRoutes);
 app.use("/api/register", authRoutes);
+app.use("/api/login", loginRoutes);
 
 // Search API Task 1: import the searchRoutes and store in a constant called searchRoutes
 //{{insert code here}}

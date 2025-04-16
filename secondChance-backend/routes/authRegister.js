@@ -1,12 +1,11 @@
 const express = require("express");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
 const router = express.Router();
 const connectToDatabase = require("../models/db");
 const logger = require("../logger");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 router.post("/", async (req, res) => {
   try {
@@ -40,16 +39,9 @@ router.post("/", async (req, res) => {
     console.log("🚀 ~ authtoken", authtoken);
 
     logger.info("User registered successfully");
-    res.json({ authtoken, email });
-    // Task 1: Connect to `secondChance` in MongoDB through `connectToDatabase` in `db.js`.
-    // Task 2: Access MongoDB `users` collection
-    // Task 3: Check if user credentials already exists in the database and throw an error if they do
-    // Task 4: Create a hash to encrypt the password so that it is not readable in the database
-    // Task 5: Insert the user into the database
-    // Task 6: Create JWT authentication if passwords match with user._id as payload
-    // Task 7: Log the successful registration using the logger
-    // Task 8: Return the user email and the token as a JSON
+    res.json({ authtoken, email: req.body.email });
   } catch (e) {
+    console.log("🚀 ~ e", e);
     return res.status(500).send("Internal server error");
   }
 });
