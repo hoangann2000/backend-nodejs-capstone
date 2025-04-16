@@ -1,4 +1,4 @@
-name: 'CI/CD'
+name: "CI/CD"
 on:
   push:
     branches: [master, main]
@@ -6,9 +6,9 @@ on:
     branches: [master, main]
 jobs:
   lint_js:
-      name: Lint JavaScript Files
-      runs-on: ubuntu-latest
-      steps:
+    name: Lint JavaScript Files
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Install Node.js
