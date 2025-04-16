@@ -5,11 +5,10 @@ const logger = require("../logger");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
-const upload = multer();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-router.post("/", upload.none(), async (req, res) => {
+router.post("/", async (req, res) => {
   console.log("🚀 ~ req", req.body);
   try {
     // Task 1: Connect to `secondChance` in MongoDB through `connectToDatabase` in `db.js`.
