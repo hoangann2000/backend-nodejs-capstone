@@ -30,7 +30,6 @@ router.get('/', async (req, res, next) => {
     // Step 2: task 3 - insert code here
     const secondChanceItems = await collection.find({}).toArray()
     // Step 2: task 4 - insert code here
-    console.log('🚀 ~ secondChanceItems', secondChanceItems)
 
     return res.json(secondChanceItems)
   } catch (e) {
@@ -50,7 +49,6 @@ router.post('/', upload.single('file'), async (req, res, next) => {
 
     // Step 3: task 3 - insert code here
     let secondChanceItem = req.body
-    console.log('🚀 ~ secondChanceItem', secondChanceItem)
     // Step 3: task 4 - insert code here
     const lastItemQuery = await collection.find().sort({ id: -1 }).limit(1)
     await lastItemQuery.forEach((item) => {
