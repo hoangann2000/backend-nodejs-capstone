@@ -60,7 +60,7 @@ function DetailsPage() {
 				<div className="card-body">
 					<div className="image-placeholder-large">
 						{gift.image ? (
-							<img src={urlConfig.backendUrl + gift.image} alt={gift.name} className="product-image-large" />
+							<img src={urlConfig.backendUrl + '/static/' + gift.image} alt={gift.name} className="product-image-large" />
 						) : (
 							<div className="no-image-available-large">No Image Available</div>
 						)}
